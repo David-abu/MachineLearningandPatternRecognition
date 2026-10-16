@@ -43,4 +43,4 @@ pdflatex report.tex && pdflatex report.tex
 
 ## Acknowledgement
 
-Prepared with the assistance of Claude (Anthropic) and reviewed by OpenAI Codex, as declared in the report. Codex's corrections (ROC AUC with tied scores, training-only scaling during tuning, validation terminology, data provenance) are merged into this version.
+Prepared with the assistance of Claude (Anthropic) 
