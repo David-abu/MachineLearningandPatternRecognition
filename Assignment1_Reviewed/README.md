@@ -1,38 +1,36 @@
-# Assignment 1: reviewed implementation
+# Assignment 1: reviewed report and reproducible experiments
 
-The original uploaded PDF and ZIP have not been modified. This folder contains a corrected, rerun working draft based on that implementation. AI assistance is described in the report.
+The report is **EECE5644_Assignment1_Reviewed.pdf**. It uses native LaTeX equations and includes the mathematical analysis, results, plots, AI declaration, data provenance, and experiment source appendix. Study_Guide.md is a separate learning companion.
 
 ## Run the experiments
 
-With Python 3.10+:
-
-```
+```sh
 python -m pip install -r requirements.txt
 python run_all.py
 ```
 
-The runner downloads the original UCI datasets if absent, then runs all questions and verification. It can be invoked from any directory. Q1 includes an additional independent two-million-observation Monte Carlo estimate. HAR requires substantial memory; allow approximately 1-2 GB of available RAM. Results and figures are regenerated deterministically from the specified seeds, subject to numerical library differences.
+The runner downloads original UCI datasets when absent and runs all questions plus verification. Results appear in `out/`; plots appear in `figs/`. Run from any directory. NumPy 2+ is needed for `numpy.trapezoid`.
 
-To regenerate the PDF separately:
+## Build the PDF
 
+Install Tectonic or a LaTeX distribution providing pdfLaTeX, then run:
+
+```sh
+python build_latex.py
 ```
-python build_report.py
-```
 
-PDF fonts use Windows Arial when available; the experiments do not require Windows. The supplied original LaTeX file and original code are retained under `original_source/` for comparison and are not the revised report source. `build_report.py` is the revised report source. `gen_tables.py` is an optional legacy table exporter, not required by the runner.
+The builder regenerates LaTeX tables from saved JSON, compiles `report.tex`, and writes `EECE5644_Assignment1_Reviewed.pdf`. Tectonic may download TeX packages on the first build. No ReportLab, machine-specific Python package path, or rasterized equation assets are needed. `build/` contains disposable compiler output.
 
-## Files
+## What changed after the presentation review
 
-- `EECE5644_Assignment1_Reviewed.pdf`: complete revised report, plots, and source appendix.
-- `Study_Guide.md`: explanations of what each experiment does and why.
-- `Review_Notes.md`: corrections and limits of the verification.
-- `q1.py`, `q2.py`, `q3.py`, `common.py`: experiment code.
-- `download_data.py`: original UCI archives, SHA-256 records, and required-data extraction.
-- `run_all.py`: one-command experiment runner.
-- `verify_results.py`: independent checks of numerical calculations and saved results.
-- `out/`: JSON summaries, generated datasets, full ROC traces, and verification record.
-- `figs/`: every report plot, plus equation images used in PDF generation.
-- `data/sources.json`: exact archive URLs, sizes, and hashes.
-- `logs/`: execution output.
+- Replaced the earlier ReportLab report with native LaTeX based on the merged report from `Assignment1/`.
+- Removed draft labels and standardized equations, headings, captions, and page numbering.
+- Retained the verified AUC and preprocessing corrections and explicit validation terminology.
+- Tightened remaining claims about LDA, covariance rank, and Gaussian diagnostics.
+- Preserved the study guide as a separate resource.
 
-Training results are reported on all data as the instructor requests. Wine CV and the HAR official-split validation are separate tuning diagnostics. The latter was used to choose alpha and is not an untouched final test.
+`build_report.py` delegates to `build_latex.py` for compatibility with the earlier entry point. The existing `original_source/` directory preserves provenance, not the current source. The root `report.tex` and `gen_tables.py` are current.
+
+## Evidence and provenance
+
+`out/verification.json` records the numerical checks. `data/sources.json` records original UCI archive URLs and SHA-256 hashes. Synthetic seeds and data are unchanged. The main results use all-sample training evaluation as the assignment requests; validation estimates are reported separately. AI assistance from Claude and Codex is disclosed in the report without claiming independent student verification.
