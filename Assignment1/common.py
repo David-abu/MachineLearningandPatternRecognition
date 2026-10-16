@@ -41,5 +41,8 @@ def roc_sweep(score, labels):
 
 
 def auc(fpr, tpr):
-    o = np.argsort(fpr, kind="stable")
-    return np.trapezoid(tpr[o], fpr[o])
+    """Area under the ROC, integrating along the curve in threshold order.
+    roc_sweep returns points with FPR non-increasing; tied FPR values (vertical
+    segments) must keep that order, so we integrate as-is and flip the sign.
+    (Correction from the OpenAI Codex review: sorting by FPR broke ties.)"""
+    return float(-np.trapezoid(tpr, fpr))

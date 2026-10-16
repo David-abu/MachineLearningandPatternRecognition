@@ -69,9 +69,9 @@ for i, c in enumerate(sorted(int(k) for k in h["per_class"])):
 s += "\\bottomrule\n\\end{tabular}\n"
 open("out/t_q3_har_cls.tex", "w").write(s)
 
-s = "\\begin{tabular}{lcccc}\n\\toprule\n$\\alpha$ & Wine: all-sample & Wine: 5-fold CV & HAR: all-sample & HAR: held-out (official split) \\\\\n\\midrule\n"
+s = "\\begin{tabular}{lcccc}\n\\toprule\n$\\alpha$ & Wine: all-sample & Wine: 5-fold CV & HAR: all-sample & HAR: validation (official split) \\\\\n\\midrule\n"
 for a, b in zip(q3["wine_sweep"], q3["har_sweep"]):
-    s += f"{a['alpha']:g} & {a['train']:.4f} & {a['cv']:.4f} & {b['train']:.4f} & {b['test']:.4f} \\\\\n"
+    s += f"{a['alpha']:g} & {a['train']:.4f} & {a['cv']:.4f} & {b['train']:.4f} & {b['val']:.4f} \\\\\n"
 s += "\\bottomrule\n\\end{tabular}\n"
 open("out/t_q3_sweep.tex", "w").write(s)
 print("ok")

@@ -81,6 +81,13 @@ def heat(ax, M, cnt, ticks, title):
     ax.set_title(title, fontsize=10)
 
 
+def zscore(Xfit, *Xapply):
+    """Fit per-feature mean/std on Xfit only, then apply to Xfit and each Xapply."""
+    mu, sd = Xfit.mean(0), Xfit.std(0)
+    sd = np.where(sd > 0, sd, 1.0)
+    return [(X - mu) / sd for X in (Xfit,) + Xapply]
+
+
 def pca(X, k):
     Xc = X - X.mean(0)
     U, s, Vt = np.linalg.svd(Xc, full_matrices=False)
@@ -105,8 +112,10 @@ for a in alphas:
     tr_err = float(np.mean(predict(m, Xw) != yw))
     cv_err = []
     for f in range(5):
-        mf = fit(Xw[folds != f], yw[folds != f], a)
-        cv_err.append(np.mean(predict(mf, Xw[folds == f]) != yw[folds == f]))
+        # scaling is fitted on the training folds only (no leakage into the held-out fold)
+        Xtr_f, Xva_f = zscore(Xw_raw[folds != f], Xw_raw[folds == f])
+        mf = fit(Xtr_f, yw[folds != f], a)
+        cv_err.append(np.mean(predict(mf, Xva_f) != yw[folds == f]))
     sweep_w.append(dict(alpha=a, train=tr_err, cv=float(np.mean(cv_err))))
 res["wine_sweep"] = sweep_w
 alpha_w = min(sweep_w, key=lambda r: r["cv"])["alpha"]
@@ -135,13 +144,15 @@ sweep_h = []
 for a in alphas:
     m = fit(Xhs, yh, a)
     tr_err = float(np.mean(predict(m, Xhs) != yh))
-    # held-out check on the dataset's own subject-disjoint train/test split
-    mt = fit(Xhs[:ntr], yh[:ntr], a)
-    te_err = float(np.mean(predict(mt, Xhs[ntr:]) != yh[ntr:]))
-    sweep_h.append(dict(alpha=a, train=tr_err, test=te_err))
-    print("HAR", a, tr_err, te_err, flush=True)
+    # validation on the dataset's own subject-disjoint split (scaling fitted on its train part only).
+    # This split is used to choose alpha, so it is a validation score, not an untouched test score.
+    Xtr_h, Xva_h = zscore(Xh[:ntr], Xh[ntr:])
+    mt = fit(Xtr_h, yh[:ntr], a)
+    va_err = float(np.mean(predict(mt, Xva_h) != yh[ntr:]))
+    sweep_h.append(dict(alpha=a, train=tr_err, val=va_err))
+    print("HAR", a, tr_err, va_err, flush=True)
 res["har_sweep"] = sweep_h
-alpha_h = min(sweep_h, key=lambda r: r["test"])["alpha"]
+alpha_h = min(sweep_h, key=lambda r: r["val"])["alpha"]
 mh = fit(Xhs, yh, alpha_h)
 Dh = predict(mh, Xhs)
 Mh, Ch = confusion(Dh, yh, cls_h)
@@ -164,10 +175,10 @@ fig.tight_layout(); fig.savefig("figs/q3_har_conf.png", dpi=160); plt.close(fig)
 # regularisation sweep
 fig, axs = plt.subplots(1, 2, figsize=(11, 3.8))
 axs[0].semilogx(alphas, [r["train"] for r in sweep_w], "o-", label="all-sample (training) error")
-axs[0].semilogx(alphas, [r["cv"] for r in sweep_w], "s-", label="5-fold CV error")
+axs[0].semilogx(alphas, [r["cv"] for r in sweep_w], "s-", label="5-fold CV (validation) error")
 axs[0].axvline(alpha_w, color="k", ls=":"); axs[0].set_title("Wine"); axs[0].set_xlabel(r"$\alpha$")
 axs[1].semilogx(alphas, [r["train"] for r in sweep_h], "o-", label="all-sample (training) error")
-axs[1].semilogx(alphas, [r["test"] for r in sweep_h], "s-", label="held-out error (official split)")
+axs[1].semilogx(alphas, [r["val"] for r in sweep_h], "s-", label="validation error (official split)")
 axs[1].axvline(alpha_h, color="k", ls=":"); axs[1].set_title("HAR"); axs[1].set_xlabel(r"$\alpha$")
 for a in axs:
     a.set_ylabel("P(error)"); a.grid(alpha=0.3, which="both"); a.legend(fontsize=8)
