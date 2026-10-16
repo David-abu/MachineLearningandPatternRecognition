@@ -1,0 +1,11 @@
+\begin{tabular}{lccccc}
+\toprule
+Classifier & threshold at min $P(e)$ & $P(D{=}1|L{=}1)$ & $P(D{=}1|L{=}0)$ & $\hat P(\text{error})$ & AUC \\
+\midrule
+A: true pdf & $\hat\gamma = 0.791$ ($\ln\hat\gamma=-0.235$) & 0.9679 & 0.0145 & 0.0259 & 0.9958 \\
+\quad at theory $\gamma^*=0.5385$ & $\ln\gamma^*=-0.619$ & 0.9716 & 0.0225 & 0.0264 & \\
+B: naive Bayes & $\hat\gamma = 0.640$ ($\ln\hat\gamma=-0.447$) & 0.9654 & 0.0286 & 0.0325 & 0.9941 \\
+\quad at $\gamma^*=0.5385$ & $\ln\gamma^*=-0.619$ & 0.9670 & 0.0318 & 0.0326 & \\
+C: Fisher LDA & $\hat\tau = -0.0053$ & 0.9512 & 0.0584 & 0.0521 & 0.9853 \\
+\bottomrule
+\end{tabular}
