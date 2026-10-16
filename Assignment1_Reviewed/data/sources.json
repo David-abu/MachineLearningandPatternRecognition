@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "wine",
+    "url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+    "sha256": "3ed56667f4b828242bd732d7d1dd7f2861e54432239d7fa63877014cbb0304d4",
+    "bytes": 91353
+  },
+  {
+    "dataset": "har",
+    "url": "https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip",
+    "sha256": "c00b803081a5c797cd5e4b83700a9810b38d53d9d84e01917e090e1fdbc81031",
+    "bytes": 61005872
+  }
+]

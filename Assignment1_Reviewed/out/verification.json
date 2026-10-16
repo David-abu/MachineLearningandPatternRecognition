@@ -1,0 +1,27 @@
+{
+  "passed": 22,
+  "checks": [
+    "Gaussian log-density agrees with scipy.stats",
+    "Tied-score ROC matches direct decisions at every threshold",
+    "ROC area agrees with independent rank statistic",
+    "Q1 A: ROC endpoints and monotonicity",
+    "Q1 A: AUC agrees with saved ROC",
+    "Q1 B: ROC endpoints and monotonicity",
+    "Q1 B: AUC agrees with saved ROC",
+    "Q1 C: ROC endpoints and monotonicity",
+    "Q1 C: AUC agrees with saved ROC",
+    "LDA generalized eigenvector agrees with closed form",
+    "Q2 0-1: columns normalized and 10000 counts",
+    "Q2 0-1: risk agrees with confusion counts",
+    "Q2 10: columns normalized and 10000 counts",
+    "Q2 10: risk agrees with confusion counts",
+    "Q2 100: columns normalized and 10000 counts",
+    "Q2 100: risk agrees with confusion counts",
+    "Q3 wine: error and normalized confusion agree",
+    "Q3 wine: positive regularization per class",
+    "Q3 har: error and normalized confusion agree",
+    "Q3 har: positive regularization per class",
+    "Q3 CV scaling is fitted on fold training data",
+    "Q3 official-split scaling is fitted on training data"
+  ]
+}
