@@ -5,6 +5,7 @@ Coursework for EECE5644 at Northeastern University.
 | Folder | Contents |
 |---|---|
 | [`Assignment1/`](Assignment1/) | Bayes decision theory, ROC analysis, naive Bayes, Fisher LDA, ERM with loss matrices, Gaussian classifiers on Wine Quality and HAR |
+| [`Assignment2/`](Assignment2/) | Min-P(error) vs. ML-trained logistic classifiers, ML/MAP polynomial regression, MAP range-based localization, reject option, categorical ML/MAP ([report](Assignment2/EECE5644_Assignment2.pdf)) |
 
 ## Reviewed Assignment 1
 
