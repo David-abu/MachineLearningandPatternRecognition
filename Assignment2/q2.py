@@ -65,7 +65,7 @@ xT, yT, xV, yV = hw2q2()
 ZT, ZV = z_cubic(xT), z_cubic(xV)
 wML = w_ml(ZT, yT)
 resid = yT - ZT @ wML
-sigma2 = resid @ resid / (len(yT) - ZT.shape[1])   # unbiased noise-variance estimate from ML fit
+sigma2 = resid @ resid / (len(yT) - ZT.shape[1])   # working residual-variance estimate from the ML fit
 mse_ml_train, mse_ml_val = mse(ZT, yT, wML), mse(ZV, yV, wML)
 print(f"sigma^2 estimate (from ML residuals) = {sigma2:.4f}")
 print(f"ML : train MSE = {mse_ml_train:.4f}, validation MSE = {mse_ml_val:.4f}")

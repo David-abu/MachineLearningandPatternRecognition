@@ -52,7 +52,7 @@ for K, ax in zip((1, 2, 3, 4), axes.ravel()):
     Z = J(X, Y, L, r)
     i = np.unravel_index(np.argmin(Z), Z.shape)
     pMAP = np.array([X[i], Y[i]])
-    # area enclosed by J <= Jmin + 2 (an approximate "uncertainty region")
+    # area of J <= Jmin + 2: objective-based uncertainty proxy (~63% mass under a local 2-D Gaussian approx.)
     area = np.sum(Z <= Z.min() + 2) * (g[1] - g[0]) ** 2
     print(f"K={K}: ranges={np.round(r,3)}  MAP≈({pMAP[0]:.3f},{pMAP[1]:.3f})  "
           f"|MAP-true|={np.linalg.norm(pMAP-pT):.3f}  Jmin={Z.min():.3f}  area(J<=Jmin+2)={area:.4f}")

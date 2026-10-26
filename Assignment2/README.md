@@ -39,7 +39,7 @@ The report uses `fontspec` (DejaVu Sans Mono for the code appendix), so it needs
 | Q1 logistic-quadratic, N=2000 | P(error) = 0.2795 |
 | Q1 logistic-linear, best | P(error) = 0.379 |
 | Q2 ML | MSE = 5.455 |
-| Q2 best MAP (γ ≈ 8e-6) | MSE = 4.427 |
+| Q2 best MAP (γ ≈ 8e-6, selected on the validation set, so optimistic) | MSE = 4.427 |
 | Q3 MAP error, K=1 → K=4 | 0.650 → 0.147 |
 
 AI assistance from Claude is disclosed in the report.
