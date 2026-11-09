@@ -1,6 +1,6 @@
 # Assignment 3: MLP posterior estimation and GMM order selection
 
-The report is **EECE5644_Assignment3.pdf**. An editable Word version is **EECE5644_Assignment3.docx** (same content; the AI-use statement is the highlighted placeholder to edit). It contains the process, math, results, figures, software checks, the AI-use declaration and a code appendix. The questions are in `Assignment3_Questions.pdf`.
+The report is **EECE5644_Assignment3.pdf**. It contains the process, math, results, figures, software checks, the AI-use declaration and a code appendix. **EECE5644_Assignment3.docx** is an editable Word version with the same content; its AI-use statement is a highlighted placeholder to edit. The questions are in `Assignment3_Questions.pdf`.
 
 | Question | Topic | Code |
 |---|---|---|
