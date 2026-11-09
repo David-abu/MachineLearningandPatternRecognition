@@ -1,0 +1,16 @@
+N=100: P=3 test errors=25084 95% CI=(0.2482,0.2535) best restart converged=True (2636 it); converged restarts 8/10; restart NLL range [0.1625, 0.2148]
+   CV fits: retained solution converged 86/100; all restarts converged 171/200
+N=500: P=6 test errors=18066 95% CI=(0.1783,0.1831) best restart converged=False (3000 it); converged restarts 0/10; restart NLL range [0.3653, 0.3837]
+   CV fits: retained solution converged 18/100; all restarts converged 36/200
+N=1000: P=3 test errors=15232 95% CI=(0.1501,0.1546) best restart converged=True (2004 it); converged restarts 10/10; restart NLL range [0.4048, 0.4085]
+   CV fits: retained solution converged 20/100; all restarts converged 39/200
+N=5000: P=3 test errors=15010 95% CI=(0.1479,0.1523) best restart converged=True (2837 it); converged restarts 10/10; restart NLL range [0.3874, 0.3962]
+   CV fits: retained solution converged 15/100; all restarts converged 33/200
+N=10000: P=12 test errors=14957 95% CI=(0.1474,0.1518) best restart converged=False (3000 it); converged restarts 0/10; restart NLL range [0.3883, 0.3898]
+   CV fits: retained solution converged 18/100; all restarts converged 35/200
+N=10000 MLP confusion (rows decision, cols label):
+ [[21566  1713   576  1520]
+ [ 1143 20879   978  1470]
+ [  524   866 22293  1577]
+ [ 1740  1694  1156 20305]]
+diagnostics done

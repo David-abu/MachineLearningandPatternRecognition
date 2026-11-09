@@ -1,0 +1,131 @@
+{
+ "final": {
+  "100": {
+   "P": 3,
+   "test_errors": 25084,
+   "ci": [
+    0.24816281523202394,
+    0.2535363267902386
+   ],
+   "best_converged": true,
+   "best_iters": 2636,
+   "restarts_converged": 8,
+   "restart_nll_min": 0.16247426373770388,
+   "restart_nll_max": 0.21481126247751042
+  },
+  "500": {
+   "P": 6,
+   "test_errors": 18066,
+   "ci": [
+    0.17828770506839006,
+    0.18305682861835446
+   ],
+   "best_converged": false,
+   "best_iters": 3000,
+   "restarts_converged": 0,
+   "restart_nll_min": 0.3652799515675035,
+   "restart_nll_max": 0.38369717768587436
+  },
+  "1000": {
+   "P": 3,
+   "test_errors": 15232,
+   "ci": [
+    0.15010624380718143,
+    0.1545604671347843
+   ],
+   "best_converged": true,
+   "best_iters": 2004,
+   "restarts_converged": 10,
+   "restart_nll_min": 0.4048387265951096,
+   "restart_nll_max": 0.40851321141766983
+  },
+  "5000": {
+   "P": 3,
+   "test_errors": 15010,
+   "ci": [
+    0.14789972418046352,
+    0.15232715731572213
+   ],
+   "best_converged": true,
+   "best_iters": 2837,
+   "restarts_converged": 10,
+   "restart_nll_min": 0.38738184042119744,
+   "restart_nll_max": 0.3961976173023723
+  },
+  "10000": {
+   "P": 12,
+   "test_errors": 14957,
+   "ci": [
+    0.1473729671336808,
+    0.15179395508040416
+   ],
+   "best_converged": false,
+   "best_iters": 3000,
+   "restarts_converged": 0,
+   "restart_nll_min": 0.38833630831453436,
+   "restart_nll_max": 0.3898159614667697
+  }
+ },
+ "cv": {
+  "100": {
+   "retained_converged": 86,
+   "retained_total": 100,
+   "runs_converged": 171,
+   "runs_total": 200
+  },
+  "500": {
+   "retained_converged": 18,
+   "retained_total": 100,
+   "runs_converged": 36,
+   "runs_total": 200
+  },
+  "1000": {
+   "retained_converged": 20,
+   "retained_total": 100,
+   "runs_converged": 39,
+   "runs_total": 200
+  },
+  "5000": {
+   "retained_converged": 15,
+   "retained_total": 100,
+   "runs_converged": 33,
+   "runs_total": 200
+  },
+  "10000": {
+   "retained_converged": 18,
+   "retained_total": 100,
+   "runs_converged": 35,
+   "runs_total": 200
+  }
+ },
+ "opt_ci": [
+  0.14622009845221756,
+  0.15062691288028857
+ ],
+ "conf_mlp10k": [
+  [
+   21566,
+   1713,
+   576,
+   1520
+  ],
+  [
+   1143,
+   20879,
+   978,
+   1470
+  ],
+  [
+   524,
+   866,
+   22293,
+   1577
+  ],
+  [
+   1740,
+   1694,
+   1156,
+   20305
+  ]
+ ]
+}

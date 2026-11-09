@@ -1,0 +1,10 @@
+distance between means of components 1 and 2 = 1.709; sum of their average covariance eigenvalues = 1.750
+N=   10: selection rate by K = 1:93% 2:6% 3:1% 4:0% 5:0% 6:0% 7:0% 8:0% 9:0% 10:0%   mode=1  mean=1.08  [38s]
+N=  100: selection rate by K = 1:0% 2:0% 3:92% 4:8% 5:0% 6:0% 7:0% 8:0% 9:0% 10:0%   mode=3  mean=3.08  [265s]
+N= 1000: selection rate by K = 1:0% 2:0% 3:1% 4:83% 5:13% 6:3% 7:0% 8:0% 9:0% 10:0%   mode=4  mean=4.18  [628s]
+E[log p_true(x)] ≈ -3.8989
+/home/claude/a3/q2.py:141: RuntimeWarning: All-NaN slice encountered
+  med = np.nanmedian(cv_f, axis=0)
+/usr/local/lib/python3.13/site-packages/numpy/lib/_nanfunctions_impl.py:1593: RuntimeWarning: All-NaN slice encountered
+  return fnb._ureduce(a,
+done in 630s
